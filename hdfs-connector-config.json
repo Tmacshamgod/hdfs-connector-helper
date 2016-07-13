@@ -1,0 +1,20 @@
+{
+    "name": "hdfs-sink-connector-{{topic}}",
+    "config": 
+    {
+        "connector.class": "io.confluent.connect.hdfs.HdfsSinkConnector",
+        "tasks.max": "4",
+        "topics": "{{topic}}",
+        "hdfs.url":"hdfs://10.5.0.77:9000",
+        "flush.size":"{{flush.size}}",
+        "rotate.interval.ms":"{{rotate.interval.ms}}",
+        "hive.integration":"true",
+        "hive.metastore.uris":"thrift://10.5.0.96:9083",
+        "schema.compatibility":"BACKWARD",
+        "partition.duration.ms":"1",
+        "partitioner.class":"com.cloutropy.platform.kafka_connector_ext.partitioner.TimeFieldPartitioner",
+        "path.format":"'year'=YYYY/'month'=MM/'day'=dd/'hour'=HH/",
+        "timezone":"Asia/Shanghai",
+        "locale":"en"
+    }
+}
